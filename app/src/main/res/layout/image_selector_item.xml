@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sushant.android.imageselector.viewmodels.ImageSelectorViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewmodel.imageUrl}"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorWhite"
+                android:minHeight="50dp"
+                android:id="@+id/layout_rv_tags_user"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:maxLines="2"
+                    android:id="@+id/tags"
+                    android:text="@{viewmodel.tags}"
+                    tools:text="@string/msg_retry"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/tags"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@{viewmodel.views}"
+                    tools:text="@string/msg_retry"/>
+
+            </RelativeLayout>
+
+            <!--
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorWhite"
+                android:minHeight="50dp"
+                android:layout_below="@+id/layout_rv_tags_user"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:maxLines="2"
+                    android:id="@+id/likes"
+                    android:text="@{viewmodel.likes}"
+                    tools:text="Likes"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/likes"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="end"
+                    android:text="@{viewmodel.views}"
+                    tools:text="user"/>
+
+            </RelativeLayout>-->
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

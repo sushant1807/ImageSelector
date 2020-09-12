@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ImageSelector</string>
+    <string name="msg_no_results">No results found for the entered text</string>
+    <string name="msg_no_internet">Cannot connect to the internet. Please try with stable internet.</string>
+    <string name="msg_error_text">Something went wrong</string>
+    <string name="msg_retry">Retry</string>
+
+    <string name="action_search">Search Images</string>
+</resources>
