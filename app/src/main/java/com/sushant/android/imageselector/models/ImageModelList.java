@@ -2,13 +2,13 @@ package com.sushant.android.imageselector.models;
 
 import java.util.List;
 
-public class PixabayImageList {
+public class ImageModelList {
 
     private int total;
     private int totalHits;
     private List<ImageModel> hits;
 
-    public PixabayImageList(int total, int totalHits, List<ImageModel> hits) {
+    public ImageModelList(int total, int totalHits, List<ImageModel> hits) {
         this.total = total;
         this.totalHits = totalHits;
         this.hits = hits;

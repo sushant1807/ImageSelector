@@ -20,7 +20,7 @@ import com.sushant.android.imageselector.adapters.ImageSelectorListAdapter;
 import com.sushant.android.imageselector.api_services.APIServiceModule;
 import com.sushant.android.imageselector.api_services.InternetCheck;
 import com.sushant.android.imageselector.models.ImageModel;
-import com.sushant.android.imageselector.models.PixabayImageList;
+import com.sushant.android.imageselector.models.ImageModelList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     private void loadImages(int page, String query) {
         APIServiceModule.createAPIService()
                 .getImageResults(LocalConstant.API_KEY_VALUE, query, page, 30)
-                .enqueue(new Callback<PixabayImageList>() {
+                .enqueue(new Callback<ImageModelList>() {
             @Override
-            public void onResponse(Call<PixabayImageList> call, Response<PixabayImageList> response) {
+            public void onResponse(Call<ImageModelList> call, Response<ImageModelList> response) {
                 if (response.isSuccessful()) {
                     Timber.e("loadImages %s ", response.body().getHits());
                     addImagesToList(response.body());
@@ -111,13 +111,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<PixabayImageList> call, Throwable t) {
+            public void onFailure(Call<ImageModelList> call, Throwable t) {
                 initSnackbar(R.string.msg_error_text);
             }
         });
     }
 
-    private void addImagesToList(PixabayImageList response) {
+    private void addImagesToList(ImageModelList response) {
         progressBar.setVisibility(View.GONE);
         int position = imageList.size();
         imageList.addAll(response.getHits());
