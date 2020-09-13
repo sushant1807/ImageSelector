@@ -6,13 +6,18 @@ public class ImageModel {
     private String previewURL;
     private int likes;
     private long views;
+    private String webformatURL;
+    private int favorites;
 
-    public ImageModel(String tags, String previewURL, String user, int likes, long views) {
+    public ImageModel(String tags, String previewURL, String user, int likes, long views,
+                      String webformatURL, int favorites) {
         this.tags = tags;
         this.previewURL = previewURL;
         this.user = user;
         this.likes = likes;
         this.views = views;
+        this.webformatURL = webformatURL;
+        this.favorites = favorites;
     }
 
     public String getTags() {
@@ -33,5 +38,13 @@ public class ImageModel {
 
     public String getViews() {
         return "Views: " + views;
+    }
+
+    public String getWebformatURL() {
+        return webformatURL;
+    }
+
+    public String getFavorites() {
+        return String.valueOf(favorites);
     }
 }
